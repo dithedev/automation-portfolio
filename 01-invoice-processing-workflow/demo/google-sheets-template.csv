@@ -1,0 +1,2 @@
+processed_at,request_id,file_hash,file_name,source,status,review_reasons,document_type,invoice_number,vendor_name,invoice_date,due_date,currency,subtotal,tax_amount,total_amount,confidence,model
+2026-01-01T00:00:00.000Z,example-request-id,example-hash,example.pdf,webhook,example,delete-this-example-row,invoice,INV-EXAMPLE,Example Vendor,2026-01-01,2026-01-15,EUR,100.00,21.00,121.00,0.99,gpt-4o-mini
