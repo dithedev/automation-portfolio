@@ -1,0 +1,1 @@
+This is intentionally not a PDF. Use it to verify MIME-type validation.
