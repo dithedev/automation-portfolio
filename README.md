@@ -30,11 +30,11 @@ These are demo implementations created for portfolio review and technical explor
 
 ## Projects
 
-Each project is maintained in a separate repository with its own `README.md`, documentation, setup instructions, test data, and demo materials.
+Each project is organized in its own directory with a dedicated `README.md`, documentation, setup instructions, test data, and demo materials.
 
 | # | Project | Type | Summary | Status |
 |---:|---|---|---|---|
-| 01 | [Invoice Processing & Review Workflow](https://github.com/dithedev/invoice-processing-workflow) | n8n + AI | Receives PDF invoices, extracts structured data with AI, validates results, prevents duplicates, and routes uncertain documents for human review. | Preparing for release |
+| 01 | [Invoice Processing & Review Workflow](01-invoice-processing-workflow/) | n8n + AI | Receives PDF invoices, extracts structured data with AI, validates results, prevents duplicates, and routes uncertain documents for human review. | Available |
 | 02 | `ai-lead-routing-workflow` | n8n + AI | Receives leads through a webhook, classifies and scores them, creates CRM records, and routes follow-up actions. | Coming soon |
 | 03 | `customer-support-order-routing` | n8n + mock API + AI | Classifies support requests, retrieves order data through an API, and chooses between an automated response and human escalation. | Coming soon |
 | 04 | `news-intelligence-pipeline` | Python | Collects RSS sources, removes duplicates, stores articles in PostgreSQL, and delivers topic-based Telegram digests. | Coming soon |
