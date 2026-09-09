@@ -1,0 +1,9 @@
+{
+  "name": "Riley Parker",
+  "email": "riley.parker@example.com",
+  "company": "Example Co",
+  "message": "We are researching workflow automation options for our operations team later this year.",
+  "source": "test",
+  "consent_to_contact": false,
+  "idempotency_key": "demo-lead-006"
+}

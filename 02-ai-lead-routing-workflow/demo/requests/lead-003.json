@@ -1,0 +1,9 @@
+{
+  "name": "Alex Morgan",
+  "email": "alex.morgan@example.net",
+  "company": "",
+  "message": "I am requesting information about one specific service: workflow automation. The business goal is to copy website enquiries into Google Sheets automatically. This is exploratory research for possible future use only: there is no approved budget, no committed timeline, and no plan to start a project soon. Please keep the information on file.",
+  "source": "website",
+  "consent_to_contact": true,
+  "idempotency_key": "demo-lead-003"
+}

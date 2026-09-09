@@ -1,0 +1,11 @@
+{
+  "name": "Maya Chen",
+  "email": "maya.chen@example.com",
+  "company": "Brightpath Logistics",
+  "phone": "+1 202 555 0148",
+  "message": "I lead operations and have approval for a $25,000 project. We need an n8n workflow connecting our intake form, HubSpot and billing system. Manual routing is blocking the team, and we want to start next week.",
+  "estimated_budget": 25000,
+  "source": "website",
+  "consent_to_contact": true,
+  "idempotency_key": "demo-lead-001"
+}

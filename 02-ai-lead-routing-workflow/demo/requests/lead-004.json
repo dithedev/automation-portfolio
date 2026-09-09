@@ -1,0 +1,9 @@
+{
+  "name": "Jordan Lee",
+  "email": "jordan.lee@example.com",
+  "company": "Example Labs",
+  "message": "We need help with our systems. Please contact me to discuss what may be possible.",
+  "source": "event",
+  "consent_to_contact": true,
+  "idempotency_key": "demo-lead-004"
+}

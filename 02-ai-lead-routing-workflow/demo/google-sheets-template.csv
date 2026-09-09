@@ -1,0 +1,1 @@
+received_at,request_id,idempotency_key,email_masked,company,source,intent,requested_service,urgency,budget_category,score,tier,score_breakdown,crm_status,hubspot_contact_id,action,status,error_code,error_message

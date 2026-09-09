@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/lead-extraction.schema.json",
+  "title": "LeadExtraction",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "intent": {
+      "type": "string",
+      "enum": ["new_project", "consultation", "partnership", "support", "other"]
+    },
+    "requested_service": {
+      "type": "string",
+      "enum": ["workflow_automation", "ai_integration", "crm_integration", "data_pipeline", "other", "unclear"]
+    },
+    "urgency": {
+      "type": "string",
+      "enum": ["immediate", "within_month", "this_quarter", "exploring", "unclear"]
+    },
+    "budget_category": {
+      "type": "string",
+      "enum": ["under_5k", "5k_10k", "10k_20k", "20k_plus", "unknown"]
+    },
+    "decision_maker_signal": {
+      "type": "string",
+      "enum": ["strong", "medium", "weak", "unknown"]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400
+    },
+    "missing_information": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["company", "requested_service", "budget", "timeline", "business_goal"]
+      },
+      "uniqueItems": true
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "required": [
+    "intent",
+    "requested_service",
+    "urgency",
+    "budget_category",
+    "decision_maker_signal",
+    "summary",
+    "missing_information",
+    "confidence"
+  ]
+}

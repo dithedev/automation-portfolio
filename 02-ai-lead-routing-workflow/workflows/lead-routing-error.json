@@ -1,0 +1,54 @@
+{
+  "name":"AI Lead Intake & CRM Routing - Error Handler",
+  "nodes":[
+    {
+      "parameters":{},
+      "type":"n8n-nodes-base.errorTrigger",
+      "typeVersion":1,
+      "position":[-360,0],
+      "id":"805446af-12fe-4e60-9e26-a4d44829f8a2",
+      "name":"Workflow Error Trigger"
+    },
+    {
+      "parameters":{
+        "assignments":{"assignments":[
+          {"id":"e01","name":"workflow_name","value":"={{ String($json.workflow?.name ?? 'unknown').trim() }}","type":"string"},
+          {"id":"e02","name":"execution_id","value":"={{ String($json.execution?.id ?? '').trim() }}","type":"string"},
+          {"id":"e03","name":"failed_node","value":"={{ String($json.execution?.lastNodeExecuted ?? 'unknown').trim() }}","type":"string"},
+          {"id":"e04","name":"error_message","value":"={{ String($json.execution?.error?.message ?? $json.trigger?.error?.message ?? 'Unknown workflow error').replace(/(Bearer\\s+|api[_-]?key[=:]\\s*|token[=:]\\s*)[^\\s,;]+/gi, '$1[REDACTED]').trim().slice(0,500) }}","type":"string"},
+          {"id":"e05","name":"occurred_at","value":"={{ String($now.toISO()).trim() }}","type":"string"}
+        ]},"options":{}
+      },
+      "type":"n8n-nodes-base.set",
+      "typeVersion":3.4,
+      "position":[-120,0],
+      "id":"e98e54cf-5be2-475f-9001-87d2a183b0b4",
+      "name":"Sanitize Error Context"
+    },
+    {
+      "parameters":{
+        "chatId":"={{ $vars.LEAD_ALERT_CHAT_ID }}",
+        "text":"={{ (() => { const d = $json; const leading = /^[ \\t\\u00A0\\u1680\\u2000-\\u200A\\u202F\\u205F\\u3000\\uFEFF\\u200B-\\u200D\\u2060]+/gmu; const clean = (v) => String(v ?? '').replace(/\\r\\n?/g, '\\n').replace(leading, '').trim(); const esc = (v) => clean(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); const message = ['🚨 <b>LEAD WORKFLOW ERROR</b>', '', '⚙️ <b>Workflow</b>', esc(d.workflow_name || 'unknown'), `Execution: <code>${esc(d.execution_id || 'unavailable')}</code>`, '', '📍 <b>Failure</b>', `Node: ${esc(d.failed_node || 'unknown')}`, `Time: ${esc(d.occurred_at || 'unknown')}`, '', '🧾 <b>Error</b>', esc(d.error_message || 'Unknown workflow error')].join('\\n'); return message.replace(leading, ''); })() }}",
+        "additionalFields":{"appendAttribution":false,"parse_mode":"HTML"}
+      },
+      "type":"n8n-nodes-base.telegram",
+      "typeVersion":1.2,
+      "position":[120,0],
+      "id":"3f88721c-dff8-480c-8f94-af7c1f8d981c",
+      "name":"Send Technical Alert",
+      "retryOnFail":true,
+      "maxTries":3,
+      "waitBetweenTries":1000
+    }
+  ],
+  "connections":{
+    "Workflow Error Trigger":{"main":[[{"node":"Sanitize Error Context","type":"main","index":0}]]},
+    "Sanitize Error Context":{"main":[[{"node":"Send Technical Alert","type":"main","index":0}]]}
+  },
+  "pinData":{},
+  "settings":{"executionOrder":"v1","timezone":"Europe/Vilnius"},
+  "active":false,
+  "versionId":"6fe20292-041f-464c-b17d-a23812481429",
+  "meta":{"templateCredsSetupCompleted":false},
+  "tags":[]
+}

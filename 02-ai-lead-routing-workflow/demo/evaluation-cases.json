@@ -1,0 +1,52 @@
+[
+  {
+    "fixture": "lead-001.json",
+    "expected": {
+      "intent": "new_project",
+      "requested_service": "workflow_automation",
+      "urgency": "immediate",
+      "budget_category": "20k_plus",
+      "decision_maker_signal": "strong"
+    }
+  },
+  {
+    "fixture": "lead-002.json",
+    "expected": {
+      "intent": "new_project",
+      "requested_service": "crm_integration",
+      "urgency": "this_quarter",
+      "budget_category": "5k_10k",
+      "decision_maker_signal": "medium"
+    }
+  },
+  {
+    "fixture": "lead-003.json",
+    "expected": {
+      "intent": "consultation",
+      "requested_service": "workflow_automation",
+      "urgency": "exploring",
+      "budget_category": "unknown",
+      "decision_maker_signal": "unknown"
+    }
+  },
+  {
+    "fixture": "lead-004.json",
+    "expected": {
+      "intent": "consultation",
+      "requested_service": "unclear",
+      "urgency": "unclear",
+      "budget_category": "unknown",
+      "decision_maker_signal": "unknown"
+    }
+  },
+  {
+    "fixture": "lead-007.json",
+    "expected": {
+      "intent": "other",
+      "requested_service": "other",
+      "urgency": "exploring",
+      "budget_category": "unknown",
+      "decision_maker_signal": "unknown"
+    }
+  }
+]

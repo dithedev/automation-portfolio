@@ -1,0 +1,10 @@
+{
+  "name": "Noah Williams",
+  "email": "noah.williams@example.org",
+  "company": "Oakline Advisory",
+  "message": "Our operations team is evaluating CRM automation for this quarter. I am collecting options for the team and expect a budget around $8,000. We would like to discuss HubSpot lead routing and follow-up workflows.",
+  "estimated_budget": 8000,
+  "source": "referral",
+  "consent_to_contact": true,
+  "idempotency_key": "demo-lead-002"
+}
