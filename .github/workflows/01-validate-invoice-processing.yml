@@ -1,0 +1,49 @@
+name: Validate Invoice Processing
+
+on:
+  push:
+    paths:
+      - "01-invoice-processing-workflow/**"
+      - ".github/workflows/01-validate-invoice-processing.yml"
+  pull_request:
+    paths:
+      - "01-invoice-processing-workflow/**"
+      - ".github/workflows/01-validate-invoice-processing.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: invoice-processing-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate project artifacts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    defaults:
+      run:
+        working-directory: 01-invoice-processing-workflow
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: 01-invoice-processing-workflow/requirements-dev.txt
+
+      - name: Install validation dependencies
+        run: python -m pip install --requirement requirements-dev.txt
+
+      - name: Check Python syntax
+        run: python -m py_compile scripts/generate_demo_invoices.py scripts/validate_artifacts.py
+
+      - name: Validate workflows and demo artifacts
+        run: python scripts/validate_artifacts.py
