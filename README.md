@@ -3,7 +3,7 @@
 > Seven demo business cases showcasing practical automation development with n8n, Python, APIs, databases, and LLMs.
 
 ![Portfolio](https://img.shields.io/badge/portfolio-Automation%20%26%20AI-2563EB?style=flat-square)
-![Projects](https://img.shields.io/badge/projects-1%20%2F%207-F59E0B?style=flat-square)
+![Projects](https://img.shields.io/badge/projects-2%20%2F%207-F59E0B?style=flat-square)
 ![Status](https://img.shields.io/badge/status-in%20development-8B5CF6?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-22C55E?style=flat-square)
 
