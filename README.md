@@ -35,7 +35,7 @@ Each project is organized in its own directory with a dedicated `README.md`, doc
 | # | Project | Type | Summary | Status |
 |---:|---|---|---|---|
 | 01 | [Invoice Processing & Review Workflow](01-invoice-processing-workflow/) | n8n + AI | Receives PDF invoices, extracts structured data with AI, validates results, prevents duplicates, and routes uncertain documents for human review. | Available |
-| 02 | `ai-lead-routing-workflow` | n8n + AI | Receives leads through a webhook, classifies and scores them, creates CRM records, and routes follow-up actions. | Coming soon |
+| 02 | [AI Lead Intake & CRM Routing](02-ai-lead-routing-workflow/) | n8n + AI | Receives leads through a webhook, classifies and scores them, creates CRM records, and routes follow-up actions. | Available |
 | 03 | `customer-support-order-routing` | n8n + mock API + AI | Classifies support requests, retrieves order data through an API, and chooses between an automated response and human escalation. | Coming soon |
 | 04 | `news-intelligence-pipeline` | Python | Collects RSS sources, removes duplicates, stores articles in PostgreSQL, and delivers topic-based Telegram digests. | Coming soon |
 | 05 | `knowledge-base-rag-api` | Python + AI | Ingests a knowledge base, creates embeddings, retrieves relevant context, returns cited answers, and evaluates retrieval quality. | Coming soon |
