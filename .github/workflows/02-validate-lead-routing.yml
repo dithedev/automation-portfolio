@@ -1,0 +1,55 @@
+name: Validate Lead Routing
+
+on:
+  push:
+    paths:
+      - "02-ai-lead-routing-workflow/**"
+      - ".github/workflows/02-validate-lead-routing.yml"
+  pull_request:
+    paths:
+      - "02-ai-lead-routing-workflow/**"
+      - ".github/workflows/02-validate-lead-routing.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lead-routing-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate project artifacts and scoring
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    defaults:
+      run:
+        working-directory: 02-ai-lead-routing-workflow
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check Python syntax
+        run: python -m py_compile scripts/generate_demo_requests.py scripts/validate_artifacts.py
+
+      - name: Verify reproducible demo fixtures
+        run: python scripts/generate_demo_requests.py --check
+
+      - name: Validate workflows and project artifacts
+        run: python scripts/validate_artifacts.py
+
+      - name: Test embedded scoring policy
+        run: node scripts/test_scoring.mjs
