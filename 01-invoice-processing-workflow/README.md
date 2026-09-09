@@ -64,7 +64,6 @@ Unexpected failures are caught by the companion Error Trigger workflow and sent 
 
 ```text
 .
-├── .github/workflows/validate.yml
 ├── .env.example
 ├── demo/
 │   ├── google-sheets-template.csv
