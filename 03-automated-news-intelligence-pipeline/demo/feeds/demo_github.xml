@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Demo GitHub AI Fixture</title>
+    <link>https://github.blog/ai-and-ml/</link>
+    <item>
+      <guid isPermaLink="true">https://github.blog/demo/fixture-github-1</guid>
+      <title>GitHub AI developer tools for automation</title>
+      <link>https://github.blog/demo/fixture-github-1</link>
+      <description>Teams shipping AI features get concrete developer tools that clarify automation defaults during rollout.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_6}}</pubDate>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://github.blog/demo/fixture-github-2</guid>
+      <title>DevOps agent workflows with safer retries</title>
+      <link>https://github.blog/demo/fixture-github-2</link>
+      <description>A tooling release hardens failure modes and retry guidance so developers can automate recovery paths.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_12}}</pubDate>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://github.blog/demo/fixture-github-3</guid>
+      <title>Product update on model-assisted delivery</title>
+      <link>https://github.blog/demo/fixture-github-3</link>
+      <description>An update highlights model-assisted automation that helps product teams integrate AI into delivery pipelines.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_18}}</pubDate>
+    </item>
+  </channel>
+</rss>

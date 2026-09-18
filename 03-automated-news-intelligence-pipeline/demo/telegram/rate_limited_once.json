@@ -1,0 +1,4 @@
+{
+  "scenario": "rate_limited_once",
+  "retry_after_seconds": 1
+}

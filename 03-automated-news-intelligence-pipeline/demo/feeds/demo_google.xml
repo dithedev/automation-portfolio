@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Demo Google AI Fixture</title>
+    <link>https://blog.google/innovation-and-ai/technology/ai/</link>
+    <item>
+      <guid isPermaLink="true">https://blog.google/demo/fixture-google-1</guid>
+      <title>Google AI automation update for product teams</title>
+      <link>https://blog.google/demo/fixture-google-1</link>
+      <description>A long enough summary about AI automation and product delivery practices for operators.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_6}}</pubDate>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://blog.google/demo/fixture-google-2</guid>
+      <title>MLOps defaults that reduce rollout risk</title>
+      <link>https://blog.google/demo/fixture-google-2</link>
+      <description>Product and platform teams get clearer MLOps automation defaults when shipping AI features.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_12}}</pubDate>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://blog.google/demo/fixture-google-3</guid>
+      <title>Artificial intelligence tooling for developers</title>
+      <link>https://blog.google/demo/fixture-google-3</link>
+      <description>Developer tools for artificial intelligence workflows help automate recovery paths with clearer expectations.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_30}}</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+"""Telegram delivery message templates."""
+
+TELEGRAM_TIMEOUT = "Telegram request timed out."
+TELEGRAM_RATE_LIMITED = "Telegram rate limit exceeded."
+TELEGRAM_PERMANENT_FAILURE = "Telegram rejected the message permanently."
+TELEGRAM_REQUEST_FAILED = "Telegram request failed."
+TELEGRAM_CHAT_ID_REQUIRED = "TELEGRAM_CHAT_ID is required when delivery is enabled."
+TELEGRAM_DIGEST_NOT_FOUND = "Digest not found."
+TELEGRAM_DIGEST_NOT_DELIVERABLE = "Digest is not in a deliverable status."
+TELEGRAM_SPLIT_FAILED = "Stored digest cannot be split for Telegram delivery."
+TELEGRAM_DELIVERY_EXHAUSTED = "Telegram delivery retries exhausted."

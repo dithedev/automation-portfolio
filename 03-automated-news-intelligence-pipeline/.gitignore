@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+.secrets/
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# PyCharm and JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Tests and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit.xml
+test-results/
+
+# Linters and type checkers
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Runtime files
+*.log
+logs/
+tmp/
+temp/
+runtime/
+*.pid
+
+# Local databases and PostgreSQL data
+*.db
+*.sqlite
+*.sqlite3
+postgres_data/
+
+# Local demo output
+demo/output/
+
+# Generated security reports
+bandit-report.json
+pip-audit-report.json
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local README media (publish separately)
+/assets/
+
+# Local Docker overrides
+docker-compose.override.yml
+docker-compose.admin-override.yml
+docker-compose.*.local.yml
+/docker-compose.scheduler-live.yml
+
+# Cursor / editor agent metadata
+.cursor/
+
+# Backup files
+*.bak
+
+# Local project dump utilities and private notes
+/create_dump.py
+/project_dump.txt
+/main_tz.md
+/tasks_for_me.md
+/manual_qa/
+/readme_example1.md
+/readme_example2.md
+/workflow_example1.yml
+/workflow_example2.yml
+/workflow_example3.yml
+

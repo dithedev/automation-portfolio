@@ -1,0 +1,31 @@
+version: 1
+
+defaults:
+  enabled: true
+  max_items_per_run: 20
+  request_timeout_seconds: 15
+
+sources:
+  - key: openai-news
+    name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    allowed_host: openai.com
+    category: artificial_intelligence
+    language: en
+    enabled: true
+
+  - key: google-ai
+    name: Google AI
+    url: https://blog.google/innovation-and-ai/technology/ai/rss/
+    allowed_host: blog.google
+    category: artificial_intelligence
+    language: en
+    enabled: true
+
+  - key: github-ai-ml
+    name: GitHub AI & ML
+    url: https://github.blog/ai-and-ml/feed/
+    allowed_host: github.blog
+    category: software_development
+    language: en
+    enabled: true

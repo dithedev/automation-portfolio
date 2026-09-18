@@ -1,0 +1,63 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.idea
+.vscode
+
+# Local environments and secrets
+.venv
+venv
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__
+*.py[cod]
+*.pyd
+*.so
+.python-version
+
+# Tests and static analysis
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.coverage
+coverage.xml
+htmlcov
+.bandit
+.hypothesis
+
+# Build artifacts
+build
+dist
+*.egg-info
+
+# Runtime files
+*.log
+logs
+tmp
+temp
+*.pid
+
+# Local databases and generated data
+*.db
+*.sqlite
+*.sqlite3
+
+# Project-local utilities
+create_dump.py
+project_dump.txt
+
+# Documentation and repository metadata
+.github
+docs
+assets
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

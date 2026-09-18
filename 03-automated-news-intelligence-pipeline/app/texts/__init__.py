@@ -1,0 +1,1 @@
+"""Application messages and templates."""

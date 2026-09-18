@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Mostly Fine</title>
+    <item>
+      <guid>ok-1</guid>
+      <title>Recoverable entry despite trailing noise</title>
+      <link>https://example.com/recoverable</link>
+      <description>Summary that remains usable after a mild parse warning.</description>
+    </item>
+  </channel>
+</rss>
+<!-- trailing garbage that may set bozo -->
+<<<

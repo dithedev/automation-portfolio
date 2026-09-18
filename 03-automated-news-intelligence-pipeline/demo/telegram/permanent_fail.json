@@ -1,0 +1,4 @@
+{
+  "scenario": "permanent_fail",
+  "http_status": 400
+}

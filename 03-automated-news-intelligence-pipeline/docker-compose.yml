@@ -1,0 +1,135 @@
+name: news-intelligence-pipeline
+
+x-application: &application
+  build:
+    context: .
+    dockerfile: Dockerfile
+  pull_policy: build
+  environment:
+    APP_ENV: development
+    APP_MODE: demo
+    LOG_LEVEL: INFO
+    SCHEDULER_TIMEZONE: Europe/Vilnius
+    POSTGRES_DB: "${POSTGRES_DB:?}"
+    POSTGRES_USER: "${POSTGRES_USER:?}"
+    POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?}"
+    DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER:?}:${POSTGRES_PASSWORD:?}@postgres:5432/${POSTGRES_DB:?}"
+    TELEGRAM_ENABLED: "false"
+    SCHEDULER_ENABLED: "false"
+    MANUAL_RUN_ENABLED: "false"
+  init: true
+  read_only: true
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+
+services:
+  postgres:
+    image: postgres:17-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:?}"
+      POSTGRES_USER: "${POSTGRES_USER:?}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?}"
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+      TZ: UTC
+      PGTZ: UTC
+    command:
+      - postgres
+      - -c
+      - timezone=UTC
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'pg_isready -h 127.0.0.1 -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"'
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+
+  migrate:
+    <<: *application
+    image: news-intelligence-pipeline-migrate:local
+    restart: "no"
+    command:
+      - python
+      - -m
+      - alembic
+      - upgrade
+      - head
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  db-check:
+    <<: *application
+    image: news-intelligence-pipeline-db-check:local
+    restart: "no"
+    command:
+      - python
+      - -m
+      - app.infrastructure.db.check
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  api:
+    <<: *application
+    image: news-intelligence-pipeline-api:local
+    restart: unless-stopped
+    command:
+      - uvicorn
+      - app.api.main:create_app
+      - --factory
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/live')"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  scheduler:
+    <<: *application
+    image: news-intelligence-pipeline-scheduler:local
+    restart: unless-stopped
+    environment:
+      APP_ENV: development
+      APP_MODE: demo
+      LOG_LEVEL: INFO
+      SCHEDULER_TIMEZONE: Europe/Vilnius
+      POSTGRES_DB: "${POSTGRES_DB:?}"
+      POSTGRES_USER: "${POSTGRES_USER:?}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?}"
+      DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER:?}:${POSTGRES_PASSWORD:?}@postgres:5432/${POSTGRES_DB:?}"
+      TELEGRAM_ENABLED: "false"
+      SCHEDULER_ENABLED: "true"
+      MANUAL_RUN_ENABLED: "false"
+    command:
+      - python
+      - -m
+      - app.scheduler
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+volumes:
+  postgres_data:

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Duplicate URLs</title>
+    <item>
+      <guid>dup-1</guid>
+      <title>Same article first sighting for dedupe checks</title>
+      <link>https://example.com/shared-article</link>
+      <description>First summary of the shared article for ingestion tests.</description>
+    </item>
+    <item>
+      <guid>dup-2</guid>
+      <title>Same article second sighting for dedupe checks</title>
+      <link>https://example.com/shared-article?utm_campaign=x</link>
+      <description>Second summary of the shared article for ingestion tests.</description>
+    </item>
+  </channel>
+</rss>

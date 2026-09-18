@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Demo OpenAI News Fixture</title>
+    <link>https://openai.com/news</link>
+    <item>
+      <guid isPermaLink="true">https://openai.com/demo/fixture-openai-1</guid>
+      <title>OpenAI product update for AI automation teams</title>
+      <link>https://openai.com/demo/fixture-openai-1</link>
+      <description>Practical guidance for product teams shipping AI automation features with clearer defaults.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_6}}</pubDate>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://openai.com/demo/fixture-openai-2</guid>
+      <title>LLM tooling release improves developer workflows</title>
+      <link>https://openai.com/demo/fixture-openai-2</link>
+      <description>Developer tools for model evaluation and automation reduce operational surprise during rollout.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_12}}</pubDate>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://openai.com/demo/fixture-openai-3</guid>
+      <title>GPT agent patterns for product delivery</title>
+      <link>https://openai.com/demo/fixture-openai-3</link>
+      <description>Teams using agent-style automation get safer retry guidance for day-to-day delivery pipelines.</description>
+      <pubDate>{{PUB_DATE_HOURS_AGO_18}}</pubDate>
+    </item>
+  </channel>
+</rss>

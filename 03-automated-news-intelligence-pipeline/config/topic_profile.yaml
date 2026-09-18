@@ -1,0 +1,26 @@
+version: 1
+
+name: AI & Automation for Product Teams
+
+include_keywords:
+  - ai
+  - artificial intelligence
+  - llm
+  - gpt
+  - automation
+  - agent
+  - devops
+  - developer tools
+  - product
+  - mlops
+  - model
+  - openai
+  - anthropic
+
+exclude_keywords:
+  - crypto giveaway
+  - casino
+  - sports betting
+
+min_title_length: 12
+min_summary_length: 40

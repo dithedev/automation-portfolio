@@ -1,0 +1,1 @@
+"""Versioned digest generation instructions."""

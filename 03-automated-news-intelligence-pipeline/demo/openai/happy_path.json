@@ -1,0 +1,33 @@
+{
+  "response_id": "mock-happy-1",
+  "usage": {
+    "input_tokens": 400,
+    "output_tokens": 220
+  },
+  "output": {
+    "digest_title": "AI & Automation Daily Digest — 2026-09-15",
+    "items": [
+      {
+        "candidate_id": "c_01",
+        "summary": "Teams shipping AI features get a concrete product update that clarifies automation defaults and reduces operational surprise during rollout.",
+        "tag": "PRODUCT",
+        "relevance_score": 0.91,
+        "selection_reason": "Directly useful for product and automation teams."
+      },
+      {
+        "candidate_id": "c_02",
+        "summary": "A tooling release hardens failure modes and retry guidance so developers can automate recovery paths with clearer expectations.",
+        "tag": "DEVELOPER_TOOLS",
+        "relevance_score": 0.88,
+        "selection_reason": "Improves reliability of automation tooling."
+      },
+      {
+        "candidate_id": "c_03",
+        "summary": "An Atom feed entry highlights developer-tooling changes that help teams integrate AI workflows into existing delivery pipelines.",
+        "tag": "AUTOMATION",
+        "relevance_score": 0.84,
+        "selection_reason": "Supports day-to-day automation practice."
+      }
+    ]
+  }
+}

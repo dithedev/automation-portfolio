@@ -1,0 +1,33 @@
+{
+  "response_id": "mock-invalid-1",
+  "usage": {
+    "input_tokens": 400,
+    "output_tokens": 180
+  },
+  "output": {
+    "digest_title": "AI & Automation Daily Digest — 2026-09-15",
+    "items": [
+      {
+        "candidate_id": "c_99",
+        "summary": "This summary references a candidate identifier that was never supplied in the trusted input set for this pipeline run.",
+        "tag": "OTHER",
+        "relevance_score": 0.5,
+        "selection_reason": "Should be rejected by post-validation."
+      },
+      {
+        "candidate_id": "c_01",
+        "summary": "Teams shipping AI features get a concrete product update that clarifies automation defaults and reduces operational surprise during rollout.",
+        "tag": "PRODUCT",
+        "relevance_score": 0.91,
+        "selection_reason": "Valid item paired with an invalid peer."
+      },
+      {
+        "candidate_id": "c_02",
+        "summary": "A tooling release hardens failure modes and retry guidance so developers can automate recovery paths with clearer expectations.",
+        "tag": "DEVELOPER_TOOLS",
+        "relevance_score": 0.88,
+        "selection_reason": "Valid item paired with an invalid peer."
+      }
+    ]
+  }
+}
