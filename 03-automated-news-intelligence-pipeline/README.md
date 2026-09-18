@@ -1,5 +1,7 @@
 # Automated News Intelligence Pipeline
 
+![Automated News Intelligence Pipeline](assets/news-intelligence-pipeline-banner.png)
+
 Production-minded Python service that collects curated RSS/Atom feeds, applies
 deterministic filtering and scoring, produces a grounded LLM digest with
 Structured Outputs, persists state in PostgreSQL, and delivers HTML digests to
@@ -36,6 +38,14 @@ acceptance decision alone. Local post-validation checks candidate grounding,
 item counts, summary length, forbidden markup/URLs, and Telegram message
 splitting. Feed and article URL policy (including exact host allowlisting) is
 enforced outside the model.
+
+## Demo Output
+
+![Telegram HTML digests](assets/telegram-html-digests.png)
+
+The generated digest contains categorized, grounded summaries with direct links
+to the original publishers. Long digests are split into Telegram-safe parts
+without breaking individual news items.
 
 ## Architecture
 
