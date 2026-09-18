@@ -1,0 +1,57 @@
+name: Validate News Intelligence Pipeline
+
+on:
+  push:
+    paths:
+      - "03-automated-news-intelligence-pipeline/**"
+      - ".github/workflows/03-automated-news-intelligence-pipeline.yml"
+  pull_request:
+    paths:
+      - "03-automated-news-intelligence-pipeline/**"
+      - ".github/workflows/03-automated-news-intelligence-pipeline.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: news-intelligence-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Lint, typecheck, and unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    defaults:
+      run:
+        working-directory: 03-automated-news-intelligence-pipeline
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: |
+            03-automated-news-intelligence-pipeline/pyproject.toml
+            03-automated-news-intelligence-pipeline/uv.lock
+
+      - name: Install project with dev dependencies
+        run: python -m pip install -e ".[dev]"
+
+      - name: Ruff lint
+        run: python -m ruff check app tests
+
+      - name: Ruff format check
+        run: python -m ruff format --check app tests
+
+      - name: Mypy
+        run: python -m mypy app
+
+      - name: Unit tests
+        run: python -m pytest tests/unit -q
